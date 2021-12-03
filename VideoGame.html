@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+
+<script type="text/javascript">
+    function getName() {
+        $.ajax({
+            url: 'VideoGame.json',
+            type: 'GET',
+            datatype: 'json',
+            success: function (data) {
+                var json = JSON.parse(data);
+                DisplayData(json);
+            },
+            error: function (jqXHR, textStatus, errorThrown) { alert(textStatus); }
+
+        });
+    }
+    function DisplayData(json) {
+        document.getElementById("item").innerHTML = json.item;
+        document.getElementById("price").innerHTML = json.price;
+
+    }
+    </script>
+
+    <body>
+            <div id="weatherResults"><div id="item"><div><div id="price"></div></div>
+            <button type="button" onclick="getName()">Get Weather Info</button>
+        
+    </body>
+</html>
+    
